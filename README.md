@@ -9,7 +9,7 @@ This project fine-tunes a T5 model to correct grammatical errors in English text
 - [📓 Colab Notebook](https://colab.research.google.com/github/Mohitag94/grammar_correction/blob/main/grammar_correction_t5_lora.ipynb)
 
 ## Dataset
-The assignment usage  JFLEG (JHU FLuency-Extended GUG) dataset for grammatical error correction.
+The assignment uses JFLEG (JHU FLuency-Extended GUG) dataset for grammatical error correction.
 - Contains 1,511 sentences with 4 human-written fluency corrections each
 - Split into development (754 sentences) and test sets (747 sentences)
     - development set used as training and test set used as validation & testing sets
@@ -28,7 +28,7 @@ Assignment2/Grammar_Correction
 ├── grammar_correction_t5_lora.ipynb	# Main training and evaluation notebook
 ├── README.md                   		# This file
 ├── Images/                     		# Directory for saving output images
-├── ../Checkpoints/                     # Directory for saving traing logs
+├── ../Checkpoints/                     # Directory for saving training logs
 
 ```
 
@@ -87,10 +87,10 @@ The implementation includes:
 
 ## Results
 The model is evaluated on the validation set using following metrics:
-- **GLEU (Generalized Language Evaluation Understanding)**: Specifically designed for correct grammar error; recall oriented
-	- Achived 66.58% on test data.
+- **GLEU (Generalized Language Evaluation Understanding)**: Specifically designed for grammar error correction; recall oriented
+	- Achieved 66.58% on test data.
 - **METEOR**: Incorporates linguistic  understanding. 
-	- Achived  86.94% on test data.
+	- Achieved  86.94% on test data.
 - **BERT Score**: Measures semantic similarity 
 	- **Precision**: 92.32% on test data.
 	- **Recall**: 93.25% on test data.
