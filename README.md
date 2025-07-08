@@ -37,21 +37,22 @@ The model is trained with the following configuration:
 - Batch size: 4
 - Number of epochs: 3
 - Learning rate: 0.0001
-- Warm Ratio: 0.1,
+- Warm Ratio: 0.1
 - Weight Decay: 0.01
-- LoRA Rank: 4,
-- LoRA Alpha: 8,
+- LoRA Rank: 4
+- LoRA Alpha: 8
 - LoRA Dropout: 0.1
 - Device: CUDA (if available) or CPU
 - Random seed: 42
 
 ## Implementation Details
 The implementation includes:
-1. Custom COCO dataset loader to filter target classes
-2. Mask R-CNN model with pre-trained weights
-3. Training pipeline with optimizer and learning rate scheduler
-4. Evaluation metrics including mean Average Precision (mAP)
-5. Visualization tools for displaying predictions
+1. Augmented the training set through mapping each sources to it's multiple references.
+2. Setup the LoRA T5 model with trainable params: 147,456 || all params: 60,654,080 || trainable%: 0.2431.
+3. Evaluating every epochs on gleu, bertscore and meteor metrics.
+4. Visualisation of training and validation loss along with metrics and learning rate.
+5. Running test on the 10% of the validation data.
+6. Inference on few sentences.
 
 ## Requirements
 - datasets==3.6.0
