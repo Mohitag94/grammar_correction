@@ -25,9 +25,9 @@ The assignment uses JFLEG (JHU FLuency-Extended GUG) dataset for grammatical err
 ## Project Structure
 ```
 Assignment2/Grammar_Correction
-├── grammar_correction_t5_lora.ipynb	# Main training and evaluation notebook
-├── README.md                   		# This file
-├── Images/                     		# Directory for saving output images
+├── grammar_correction_t5_lora.ipynb	# Main training and evaluation notebook [Download to view the file, Not visible in GitHub]
+├── README.md                   	# This file
+├── Images/                     	# Directory for saving output images
 ├── ../Checkpoints/                     # Directory for saving training logs
 
 ```
