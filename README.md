@@ -1,39 +1,46 @@
-# Fine-Tune T5 LoRA for Grammar Correction on JFLEG Dataset
+# Grammar Correction with T5 + LoRA Fine-tuning
 
-## 7PAM2015-0509-2024 -- Research Methods in Data Science
-### Mohit Agarwal (Student ID-22031257)
+[![Live Demo](https://img.shields.io/badge/Demo-HuggingFace%20Spaces-yellow)](https://huggingface.co/spaces/mohitag94/grammar-correction-app)
+[![Model](https://img.shields.io/badge/Model-HuggingFace-orange)](https://huggingface.co/mohitag94/grammar_correction_t5_lora)
 
 ## Project Overview
-This project fine-tunes a T5 model to correct grammatical errors in English text. Uses JFLEG dataset for training and evaluation.
 
-- [📓 Colab Notebook](https://colab.research.google.com/github/Mohitag94/grammar_correction/blob/main/grammar_correction_t5_lora.ipynb)
+Fine-tuned T5-small (60M parameters) using LoRA (Low-Rank Adaptation) for Grammar Error Correction (GEC) on the JFLEG dataset. Deployed as an interactive web application on HuggingFace Spaces.
+
+- [📓 Training Notebook](https://colab.research.google.com/github/Mohitag94/grammar_correction/blob/main/grammar_correction_t5_lora.ipynb)
+- [🚀 Live Demo](https://huggingface.co/spaces/mohitag94/grammar-correction-app)
 
 ## Dataset
-The assignment uses JFLEG (JHU FLuency-Extended GUG) dataset for grammatical error correction.
+
+Uses the JFLEG (JHU FLuency-Extended GUG) dataset for grammatical error correction.
+
 - Contains 1,511 sentences with 4 human-written fluency corrections each
 - Split into development (754 sentences) and test sets (747 sentences)
-    - development set used as training and test set used as validation & testing sets
+    - Development set used for training, test set used for validation and testing
 - Focuses on fluency edits beyond just grammatical corrections
 - Citation:
-	Napoles, C., Sakaguchi, K., & Tetreault, J. (2017).
-	JFLEG: A Fluency Corpus and Benchmark for Grammatical Error Correction
+    Napoles, C., Sakaguchi, K., & Tetreault, J. (2017).
+    JFLEG: A Fluency Corpus and Benchmark for Grammatical Error Correction
 
 ## Model Architecture
+
 - **Base Model**: T5-small 60 million parameters
--  **Fine-tuning**: Using LoRA (Low-Rank Adaptation)
+- **Fine-tuning**: Using LoRA (Low-Rank Adaptation)
+- **Trainable Parameters**: 147,456 (0.24% of total)
 
 ## Project Structure
 ```
-Assignment2/Grammar_Correction
-├── grammar_correction_t5_lora.ipynb	# Main training and evaluation notebook [Download to view the file, Not visible in GitHub]
-├── README.md                   	# This file
-├── Images/                     	# Directory for saving output images
+Grammar_Correction
+├── grammar_correction_t5_lora.ipynb    # Main training and evaluation notebook
+├── README.md                           # This file
+├── Images/                             # Directory for saving output images
 ├── ../Checkpoints/                     # Directory for saving training logs
-
 ```
 
 ## Configuration
+
 The model is trained with the following configuration:
+
 - Batch size: 4
 - Number of epochs: 3
 - Learning rate: 0.0001
@@ -46,15 +53,18 @@ The model is trained with the following configuration:
 - Random seed: 42
 
 ## Implementation Details
+
 The implementation includes:
-1. Augmented the training set through mapping each sources to it's multiple references.
+
+1. Augmented the training set through mapping each source to its multiple references.
 2. Setup the LoRA T5 model with trainable params: 147,456 || all params: 60,654,080 || trainable%: 0.2431.
-3. Evaluating every epochs on gleu, bertscore and meteor metrics.
+3. Evaluating every epoch on GLEU, BERTScore and METEOR metrics.
 4. Visualisation of training and validation loss along with metrics and learning rate.
 5. Running test on the 10% of the validation data.
 6. Inference on few sentences.
 
 ## Requirements
+
 - datasets==3.6.0
 - evaluate==0.4.4
 - huggingface-hub==0.33.1
@@ -81,26 +91,29 @@ The implementation includes:
 - wordcloud==1.9.4
 
 ## Usage
+
 1. Clone the repository
 2. Set up the environment with required dependencies
-3. Run the `grammar_correction_t5_lora.ipynb` notebook for eda, training and evaluatating the model
+3. Run the `grammar_correction_t5_lora.ipynb` notebook for EDA, training and evaluating the model
 
 ## Results
-The model is evaluated on the validation set using following metrics:
-- **GLEU (Generalized Language Evaluation Understanding)**: Specifically designed for grammar error correction; recall oriented
-	- Achieved 66.58% on test data.
-- **METEOR**: Incorporates linguistic  understanding. 
-	- Achieved  86.94% on test data.
-- **BERT Score**: Measures semantic similarity 
-	- **Precision**: 92.32% on test data.
-	- **Recall**: 93.25% on test data.
-	- **F1**: 92.76% on test data.
 
+The model is evaluated on the test set using the following metrics:
+
+- **GLEU (Generalized Language Evaluation Understanding)**: Specifically designed for grammar error correction; recall oriented
+    - Achieved 66.58% on test data.
+- **METEOR**: Incorporates linguistic understanding.
+    - Achieved 86.94% on test data.
+- **BERTScore**: Measures semantic similarity
+    - **Precision**: 92.32% on test data.
+    - **Recall**: 93.25% on test data.
+    - **F1**: 92.76% on test data.
 
 ## License
-This project is part of the Research Methods in Data Science course assignment.
+
+MIT
 
 ## Acknowledgments
+
 - JFLEG dataset creators
-- Hugging Face 
-- Research Methods in Data Science course instructors
+- HuggingFace
