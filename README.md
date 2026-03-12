@@ -117,3 +117,15 @@ MIT
 
 - JFLEG dataset creators
 - HuggingFace
+
+## Citation
+
+If you use this work, please cite the JFLEG dataset:
+```bibtex
+@inproceedings{napoles2017jfleg,
+  title={JFLEG: A Fluency Corpus and Benchmark for Grammatical Error Correction},
+  author={Napoles, Courtney and Sakaguchi, Keisuke and Tetreault, Joel},
+  booktitle={Proceedings of EACL},
+  year={2017}
+}
+```
